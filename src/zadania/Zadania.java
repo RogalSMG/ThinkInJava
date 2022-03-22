@@ -29,9 +29,8 @@ public class Zadania {
     }
 
     public static double multAdd(double in) {
-        double a = in * Math.exp(in * -1.0) + Math.sqrt(1 - Math.exp(in * -1.0));
 
-        return a;
+        return in * Math.exp(in * -1.0) + Math.sqrt(1 - Math.exp(in * -1.0));
     }
 
     public static void zadanie5_3(int a, int b, int c, int n) {
@@ -375,9 +374,9 @@ public class Zadania {
      * @param input  string
      * @param letter which will be removed
      * @return String
-     * @throws Exception Do not throw, just testing tags and javaDoc
+     *
+     * *@throws Exception Do not throw, just testing tags and javaDoc*
      * @author Daniel
-     * @version the best
      */
     public static String removeLetters(String input, char letter) {
         String result;
@@ -414,14 +413,14 @@ public class Zadania {
         protected static void zoop(String fred, final int bob) {
             System.out.println(fred);
             if (bob == 5) {
-                ping("nie ");
+                ping();
             } else {
                 System.out.println("!");
             }
         }
 
-        private static void ping(String strang) {
-            System.out.println("dowolnie " + strang + "więcej ");
+        private static void ping() {
+            System.out.println("dowolnie " + "nie " + "więcej ");
         }
     }
 
@@ -604,5 +603,15 @@ public class Zadania {
         }
     }
 
-
+    public static int ackermanEx8_4(int m, int n) {
+        if (m == 0) {
+            return n + 1;
+        } else if (m > 0 && n == 0) {
+            return ackermanEx8_4(m - 1, 1);
+        } else if (m > 0 && n > 0) {
+            return ackermanEx8_4(m - 1, ackermanEx8_4(m, n - 1));
+        } else {
+            return 0;
+        }
+    }
 }
