@@ -373,9 +373,9 @@ public class Zadania {
      * Method remove letter form input
      *
      * @param input  string
-     * @param letter with will be removed
+     * @param letter which will be removed
      * @return String
-     * @thro
+     * @throws Exception Do not throw, just testing tags and javaDoc
      * @author Daniel
      * @version the best
      */
@@ -578,7 +578,7 @@ public class Zadania {
         }
     }
 
-    public static class Exercise {
+    public static class Exercise8_3 {
 
         public static void main(String[] args) {
             int result = prodShort(1, 8);
@@ -603,4 +603,6 @@ public class Zadania {
             }
         }
     }
+
+
 }
