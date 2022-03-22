@@ -78,5 +78,28 @@ class ZadaniaTest {
                 () -> assertEquals(13, Zadania.ackermanEx8_4(4, 1))
         );
     }
+
+    @Test
+    void testExercise8_5() {
+        assertAll("All",
+                () -> assertEquals(1, Zadania.exercise8_5(1, 0)),
+                () -> assertEquals(4, Zadania.exercise8_5(2, 2)),
+                () -> assertEquals(9, Zadania.exercise8_5(3, 2)),
+                () -> assertEquals(1024, Zadania.exercise8_5(2, 10)),
+                () -> assertEquals(8, Zadania.exercise8_5(2, 3))
+        );
+    }
+
+    @Test
+    void testIsPalljndrome() {
+        assertAll("All",
+                () -> assertTrue(Zadania.exercise8_7.isPalindrome("")),
+                () -> assertTrue(Zadania.exercise8_7.isPalindrome("a")),
+                () -> assertTrue(Zadania.exercise8_7.isPalindrome("aa")),
+                () -> assertTrue(Zadania.exercise8_7.isPalindrome("aba")),
+                () -> assertFalse(Zadania.exercise8_7.isPalindrome("pikok")),
+                () -> assertTrue(Zadania.exercise8_7.isPalindrome("kajak"))
+        );
+    }
 }
 
