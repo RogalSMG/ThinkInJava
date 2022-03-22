@@ -374,7 +374,7 @@ public class Zadania {
      * @param input  string
      * @param letter which will be removed
      * @return String
-     *
+     * <p>
      * *@throws Exception Do not throw, just testing tags and javaDoc*
      * @author Daniel
      */
@@ -550,14 +550,14 @@ public class Zadania {
             System.out.println(beers + " butelek piwa na regale,");
             System.out.println(beers + " butelek piwa,\n" +
                     "weź jedną, podaj ją dalej,");
-            System.out.println(beers-1 + " butelek piwa na regale.\n");
+            System.out.println(beers - 1 + " butelek piwa na regale.\n");
         }
 
         public static void lastVerse() {
             System.out.println("No more beers");
         }
 
-        
+
     }
 
     public static int oddSum8_2(int n) {
@@ -581,7 +581,7 @@ public class Zadania {
 
         public static void main(String[] args) {
             int result = prodShort(1, 8);
-            System.out.printf("%,d",result);
+            System.out.printf("%,d", result);
         }
 
         public static int prod(int m, int n) {
@@ -594,6 +594,7 @@ public class Zadania {
                 return result;
             }
         }
+
         public static int prodShort(int m, int n) {
             if (m == n) {
                 return n;
@@ -612,6 +613,105 @@ public class Zadania {
             return ackermanEx8_4(m - 1, ackermanEx8_4(m, n - 1));
         } else {
             return 0;
+        }
+    }
+
+    public static double exercise8_5(double x, int n) {
+        // TODO: 22/03/2022 additional increase performance of running method when even power
+        /*if (n % 2 == 0 && n != 0) {
+
+            return x * exercise8_5(x, n - 2);
+        }*/
+
+        if (n == 0) {
+            return 1;
+        } else {
+            return x * exercise8_5(x, n - 1);
+        }
+    }
+
+    public static int Exercise8_6(int[] arr, int lowI, int highI) {
+        // TODO: 22/03/2022 too difficult until now, recursion searching lowest element in array
+        if (lowI == highI) {
+            return arr[highI];
+        }
+        return 0;
+    }
+
+    public static class exercise8_7 {
+
+        public static void main(String[] args) {
+            printString("kakao");
+            System.out.println("----");
+            printBackward("kakao");
+            System.out.println("----");
+            String output = reverseString("kakao");
+            System.out.println(output);
+            System.out.println("----");
+        }
+
+        /**
+         * Zwraca pierwszy znak podanego łańcucha znakowego.
+         */
+        public static char first(String s) {
+            return s.charAt(0);
+        }
+
+        /**
+         * Zwraca wszystkie znaki podanego łańcucha znakowego oprócz pierwszego.
+         */
+        public static String rest(String s) {
+            return s.substring(1);
+        }
+
+        /**
+         * Zwraca wszystkie znaki podanego łańcucha znakowego oprócz pierwszego i ostatniego.
+         */
+        public static String middle(String s) {
+            return s.substring(1, s.length() - 1);
+        }
+
+        /**
+         * Zwraca długość podanego łańcucha znakowego.
+         */
+        public static int length(String s) {
+            return s.length();
+        }
+
+        public static void printString(String s) {
+            if (length(s) == 0) {
+                System.out.print("");
+            } else {
+                System.out.println(first(s));
+                printString(rest(s));
+
+            }
+        }
+
+        public static void printBackward(String s) {
+            if (length(s) == 0) {
+            } else {
+                printBackward(rest(s));
+                System.out.println(first(s));
+            }
+        }
+
+        public static String reverseString(String s) {
+            if (length(s) == 0) {
+                return "";
+            } else {
+                return reverseString(rest(s)) + first(s);
+            }
+        }
+
+        public static boolean isPalindrome(String s) {
+            if (length(s) == 0 || length(s) == 1) {
+                return true;
+            } else if (first(s) == s.charAt(length(s) - 1)) {
+                return isPalindrome(middle(s));
+            } else {
+                return false;
+            }
         }
     }
 }
