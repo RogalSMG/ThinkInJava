@@ -1,4 +1,4 @@
-package zadania.examples;
+package exercises.examples;
 
 public class Recursion {
 
@@ -37,10 +37,10 @@ public class Recursion {
         }
     }
 
-    public static void forever(String s) {
+    /*public static void forever(String s) {
         System.out.println(s);
         forever(s);
-    }
+    }*/
 
     public static void countup(int n) {
         if (n == 0) {

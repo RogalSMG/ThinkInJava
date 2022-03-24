@@ -1,4 +1,4 @@
-package zadania;
+package exercises;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -402,6 +402,7 @@ public class Exercises {
 
     /**
      * return index of the biggest element in a list
+     *
      * @param inputArray array to seek
      * @return int
      */
@@ -417,8 +418,9 @@ public class Exercises {
 
     /**
      * method returned list of booleans which indicates if index that array element is prime number
+     *
      * @param n length of array excluded
-     * @return  boolean[]
+     * @return boolean[]
      */
     public static boolean[] zadanie7_4(int n) {
         boolean[] firsts = new boolean[n];
@@ -444,7 +446,8 @@ public class Exercises {
 
     /**
      * method check if all numbers in array are factors of input
-     * @param input checked number
+     *
+     * @param input   checked number
      * @param factors checked factors of input
      * @return boolean
      */
@@ -461,7 +464,8 @@ public class Exercises {
 
     /**
      * check if input is divided by all factors and if all factors are prime numbers
-     * @param input checked number
+     *
+     * @param input   checked number
      * @param factors hypothetical factors
      * @return boolean
      */
@@ -480,6 +484,7 @@ public class Exercises {
 
     /**
      * method make histogram of given input, skip polish letters and symbols
+     *
      * @param input string to make histogram
      * @return int[]
      */
@@ -724,5 +729,33 @@ public class Exercises {
         }
 
 
+    }
+
+    public static class Chapter9 {
+        public static void main(String[] args) {
+            Exercise9_1();
+        }
+
+        public static void Exercise9_1() {
+            int num = 8;
+            boolean bool = true;
+            char chara = 'a';
+            double doub = 1.123;
+            String hel = "hello";
+            String empty = "";
+            String s = num + empty;
+
+            System.out.println(num + chara);
+            System.out.println(chara + chara);
+            System.out.println(hel + num);
+            System.out.println(bool + hel);
+            System.out.println(empty + num);
+            System.out.println(empty + doub);
+            System.out.println(chara);
+            chara++;
+            chara = (char) (chara + 1); // after adding one to char type it convert to int types, needed reversed projection
+            System.out.println(chara);
+
+        }
     }
 }
