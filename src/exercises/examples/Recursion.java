@@ -1,4 +1,4 @@
-package zadania.examples;
+package exercises.examples;
 
 public class Recursion {
 
