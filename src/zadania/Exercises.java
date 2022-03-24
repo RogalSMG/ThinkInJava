@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Zadania {
+public class Exercises {
 
     public static void zadanie3_4() {
         Random random = new Random();
@@ -29,16 +29,7 @@ public class Zadania {
     }
 
     public static double multAdd(double in) {
-
         return in * Math.exp(in * -1.0) + Math.sqrt(1 - Math.exp(in * -1.0));
-    }
-
-    public static void zadanie5_3(int a, int b, int c, int n) {
-        if (Math.pow(a, n) + Math.pow(b, n) == Math.pow(c, n)) {
-            System.out.println("Oh crap, fermat was wrong");
-        } else {
-            System.out.println("Nope, it's doesn't work");
-        }
     }
 
     public static void fibonacciDisplayAll(int n) {
@@ -123,6 +114,115 @@ public class Zadania {
         return builder.toString();
     }
 
+    public static class zadanie4_5 {
+        public static void main(String[] args) {
+            int bizz = 5;
+            int buzz = 2;
+            zoop("tylko dla", bizz);
+            clink(2 * bizz);
+        }
+
+        static void clink(int fork) {
+            System.out.print("To ");
+            zoop("śniadanie ", fork);
+        }
+
+        protected static void zoop(String fred, final int bob) {
+            System.out.println(fred);
+            if (bob == 5) {
+                ping();
+            } else {
+                System.out.println("!");
+            }
+        }
+
+        private static void ping() {
+            System.out.println("dowolnie " + "nie " + "więcej ");
+        }
+    }
+
+    public static void zadanie5_3(int a, int b, int c, int n) {
+        if (Math.pow(a, n) + Math.pow(b, n) == Math.pow(c, n)) {
+            System.out.println("Oh crap, fermat was wrong");
+        } else {
+            System.out.println("Nope, it's doesn't work");
+        }
+    }
+
+    public static class zadanie5_6 {
+        //Method getting input from user and return it if is an integer
+        public static int getIntFromUser(String variable) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Put integer for variable " + variable + ": ");
+            while (!in.hasNextInt()) {
+                String word = in.next();
+                System.err.println("Your input weren't integer: " + word);
+            }
+            return in.nextInt();
+        }
+
+        public static void main(String[] args) {
+            int a = getIntFromUser("a");
+            int b = getIntFromUser("b");
+            int c = getIntFromUser("c");
+            double x1, x2;
+
+            double delta = b * b - (4 * a * c);
+
+            if (a != 0) {
+                if (delta > 0) {
+                    x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    System.out.println("Quadratic function has two zeros:");
+                    System.out.printf("x1 = %.2f\nx2 = %.2f", x1, x2);
+                } else if (delta == 0) {
+                    x1 = (double) -b / (2 * a);
+                    System.out.println("Quadratic function has one zero:");
+                    System.out.printf("x1 = %.2f", x1);
+                } else {
+                    System.out.println("Quadratic function has no zeros.");
+                }
+            } else {
+                System.out.println("Factor a can't be equal 0");
+            }
+        }
+    }
+
+    public static class zadanie5_7 {
+        //Method getting input from user and return it if is an integer
+        public static int getIntFromUser(String variable) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Put integer for variable " + variable + ": ");
+            int side = 0;
+            boolean isPositive = false;
+            while (!isPositive) {
+                while (!in.hasNextInt()) {
+                    String word = in.next();
+                    System.err.println("Your input weren't integer: " + word);
+                }
+
+                side = in.nextInt();
+                if (side >= 0) {
+                    isPositive = true;
+                } else {
+                    System.err.println("Your number must be greater than 0");
+                }
+            }
+            return side;
+        }
+
+        public static void main(String[] args) {
+            int a = getIntFromUser("a");
+            int b = getIntFromUser("b");
+            int c = getIntFromUser("c");
+            if (a >= b + c || b >= a + c || c >= b + c) {
+                System.out.println("You cant build triangle by those segments");
+            } else {
+                System.out.println("you can built a triangle");
+            }
+        }
+    }
+
     public static void zadanie6_1(int n) {
         int i = n;
         while (i > 1) {
@@ -154,7 +254,6 @@ public class Zadania {
         double factorial = 1;
         double plusMinus = -1;
         double base = 1;
-
 
         for (int i = 0; i < n; i++) {
             if (i > 0) {
@@ -271,237 +370,7 @@ public class Zadania {
         displayingLetterAndCount(counts);
     }
 
-    public static int zadanie7_3(int[] inputArray) {
-        int indexOfMax = 0;
-        for (int i = 0; i < inputArray.length; i++) {
-            if (inputArray[i] > inputArray[indexOfMax]) {
-                indexOfMax = i;
-            }
-        }
-        return indexOfMax;
-    } //method returned index of biggest element in a list
-
-    public static boolean[] zadanie7_4(int n) {
-        boolean[] firsts = new boolean[n];
-        Arrays.fill(firsts, 2, n, true);
-        int prime = 2;
-        for (int i = 2; i < n; i++) {
-            for (int j = prime * 2; j < n; j += prime) {
-                if (j % prime == 0) {
-                    firsts[j] = false;
-                }
-            }
-
-            for (int j = prime + 1; j < n; j++) {
-                if (firsts[j]) {
-                    prime = j;
-                    i = prime;
-                    break;
-                }
-            }
-        }
-        return firsts;
-    } //method returned list of booleans which indicates if index of each array element is prime number
-
-    public static boolean zadanie7_5(int input, int[] factors) {
-        boolean areFactors = true;
-        for (int factor : factors) {
-            if (input % factor != 0) {
-                areFactors = false;
-                break;
-            }
-        }
-        return areFactors;
-    } // method check if all number in array are factors of input
-
-    public static boolean zadanie7_6(int input, int[] factors) {
-        boolean isOk = true;
-        int maxFactor = factors[zadanie7_3(factors)];
-        System.out.println(maxFactor);
-        boolean[] primes = zadanie7_4(maxFactor + 1);
-
-        for (int factor : factors) {
-            if (!primes[factor]) return false;
-        } // check if factors are prime by compare them to boolean values in primes list
-
-        return zadanie7_5(input, factors);
-    } //method check if input is divided by all factors and if all factors are prime numbers
-
-    public static int[] zadanie7_7(String input) {
-        int[] histogram = new int[26];
-        input = input.toLowerCase();
-        char[] chars = input.toCharArray();
-
-
-        for (char ch : chars) {
-            if (ch >= 'a' && ch <= 'z') {
-                histogram[ch - 'a']++;
-            }
-        }
-        return histogram;
-    } //method make histogram of given input, skip polish letters and symbols
-
-    public static boolean zadanie7_8(String input1, String input2) {
-        int[] hist1 = zadanie7_7(input1);
-        int[] hist2 = zadanie7_7(input2);
-        return Arrays.equals(hist1, hist2);
-    }
-
-    public static int factorialDown(int n) {
-        if (n == 0) {
-            return 1;
-        }
-
-        return n * factorialDown(n - 1);
-    }
-
-    public static int counta(String input) {
-        input = input.toLowerCase();
-        int count = 0;
-
-        if (input.length() == 0) {
-            return 0;
-        } else if (input.charAt(0) == 'a') {
-            count = 1;
-        }
-
-        return count + counta(input.substring(1));
-    }
-
-    /**
-     * Method remove letter form input
-     *
-     * @param input  string
-     * @param letter which will be removed
-     * @return String
-     * <p>
-     * *@throws Exception Do not throw, just testing tags and javaDoc*
-     * @author Daniel
-     */
-    public static String removeLetters(String input, char letter) {
-        String result;
-        if (input.length() == 0) {
-            result = "";
-        } else {
-            char first = input.charAt(0);
-            String rest = input.substring(1); //        System.out.println(input + "|" + rest);
-            String recurse = removeLetters(rest, letter); //        System.out.println(recurse + "|" + rest);
-            if (first == letter) {
-                result = recurse;
-            } else {
-                result = first + recurse;
-            }
-        }
-
-        return result;
-    }
-
-    public static class zadanie4_5 {
-        public static void main(String[] args) {
-            int bizz = 5;
-            int buzz = 2;
-            zoop("tylko dla", bizz);
-            clink(2 * bizz);
-
-        }
-
-        static void clink(int fork) {
-            System.out.print("To ");
-            zoop("śniadanie ", fork);
-        }
-
-        protected static void zoop(String fred, final int bob) {
-            System.out.println(fred);
-            if (bob == 5) {
-                ping();
-            } else {
-                System.out.println("!");
-            }
-        }
-
-        private static void ping() {
-            System.out.println("dowolnie " + "nie " + "więcej ");
-        }
-    }
-
-    public static class zadanie5_6 {
-        //Method getting input from user and return it if is an integer
-        public static int getIntFromUser(String variable) {
-            Scanner in = new Scanner(System.in);
-            System.out.print("Put integer for variable " + variable + ": ");
-            while (!in.hasNextInt()) {
-                String word = in.next();
-                System.err.println("Your input weren't integer: " + word);
-            }
-            return in.nextInt();
-        }
-
-        public static void main(String[] args) {
-            int a = getIntFromUser("a");
-            int b = getIntFromUser("b");
-            int c = getIntFromUser("c");
-            double x1, x2;
-
-
-            double delta = b * b - (4 * a * c);
-
-            if (a != 0) {
-                if (delta > 0) {
-                    x1 = (-b + Math.sqrt(delta)) / (2 * a);
-                    x2 = (-b - Math.sqrt(delta)) / (2 * a);
-                    System.out.println("Quadratic function has two zeros:");
-                    System.out.printf("x1 = %.2f\nx2 = %.2f", x1, x2);
-                } else if (delta == 0) {
-                    x1 = (double) -b / (2 * a);
-                    System.out.println("Quadratic function has one zero:");
-                    System.out.printf("x1 = %.2f", x1);
-                } else {
-                    System.out.println("Quadratic function has no zeros.");
-                }
-
-            } else {
-                System.out.println("Factor a can't be equal 0");
-            }
-        }
-    }
-
-    public static class zadanie5_7 {
-        //Method getting input from user and return it if is an integer
-        public static int getIntFromUser(String variable) {
-            Scanner in = new Scanner(System.in);
-            System.out.print("Put integer for variable " + variable + ": ");
-            int side = 0;
-            boolean isPositive = false;
-            while (!isPositive) {
-                while (!in.hasNextInt()) {
-                    String word = in.next();
-                    System.err.println("Your input weren't integer: " + word);
-                }
-
-                side = in.nextInt();
-                if (side >= 0) {
-                    isPositive = true;
-                } else {
-                    System.err.println("Your number must be greater than 0");
-                }
-            }
-            return side;
-        }
-
-        public static void main(String[] args) {
-            int a = getIntFromUser("a");
-            int b = getIntFromUser("b");
-            int c = getIntFromUser("c");
-            if (a >= b + c || b >= a + c || c >= b + c) {
-                System.out.println("You cant build triangle by those segments");
-            } else {
-                System.out.println("you can built a triangle");
-            }
-        }
-    }
-
     public static class zadanie7_2 {
-
         public static void main(String[] args) {
             int[] bob = make(5);
             dub(bob);
@@ -531,8 +400,155 @@ public class Zadania {
         }
     }
 
-    public static class zadanie8_1 {
+    /**
+     * return index of the biggest element in a list
+     * @param inputArray array to seek
+     * @return int
+     */
+    public static int zadanie7_3(int[] inputArray) {
+        int indexOfMax = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            if (inputArray[i] > inputArray[indexOfMax]) {
+                indexOfMax = i;
+            }
+        }
+        return indexOfMax;
+    }
 
+    /**
+     * method returned list of booleans which indicates if index that array element is prime number
+     * @param n length of array excluded
+     * @return  boolean[]
+     */
+    public static boolean[] zadanie7_4(int n) {
+        boolean[] firsts = new boolean[n];
+        Arrays.fill(firsts, 2, n, true);
+        int prime = 2;
+        for (int i = 2; i < n; i++) {
+            for (int j = prime * 2; j < n; j += prime) {
+                if (j % prime == 0) {
+                    firsts[j] = false;
+                }
+            }
+
+            for (int j = prime + 1; j < n; j++) {
+                if (firsts[j]) {
+                    prime = j;
+                    i = prime;
+                    break;
+                }
+            }
+        }
+        return firsts;
+    }
+
+    /**
+     * method check if all numbers in array are factors of input
+     * @param input checked number
+     * @param factors checked factors of input
+     * @return boolean
+     */
+    public static boolean zadanie7_5(int input, int[] factors) {
+        boolean areFactors = true;
+        for (int factor : factors) {
+            if (input % factor != 0) {
+                areFactors = false;
+                break;
+            }
+        }
+        return areFactors;
+    }
+
+    /**
+     * check if input is divided by all factors and if all factors are prime numbers
+     * @param input checked number
+     * @param factors hypothetical factors
+     * @return boolean
+     */
+    public static boolean zadanie7_6(int input, int[] factors) {
+        boolean isOk = true;
+        int maxFactor = factors[zadanie7_3(factors)];
+        System.out.println(maxFactor);
+        boolean[] primes = zadanie7_4(maxFactor + 1);
+
+        //check if factors are prime by compare them to boolean values in primes list
+        for (int factor : factors) {
+            if (!primes[factor]) return false;
+        }
+        return zadanie7_5(input, factors);
+    }
+
+    /**
+     * method make histogram of given input, skip polish letters and symbols
+     * @param input string to make histogram
+     * @return int[]
+     */
+    public static int[] zadanie7_7(String input) {
+        int[] histogram = new int[26];
+        input = input.toLowerCase();
+        char[] chars = input.toCharArray();
+
+        for (char ch : chars) {
+            if (ch >= 'a' && ch <= 'z') {
+                histogram[ch - 'a']++;
+            }
+        }
+        return histogram;
+    }
+
+    public static boolean zadanie7_8(String input1, String input2) {
+        int[] hist1 = zadanie7_7(input1);
+        int[] hist2 = zadanie7_7(input2);
+        return Arrays.equals(hist1, hist2);
+    }
+
+    public static int factorialDown(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorialDown(n - 1);
+    }
+
+    public static int counta(String input) {
+        input = input.toLowerCase();
+        int count = 0;
+
+        if (input.length() == 0) {
+            return 0;
+        } else if (input.charAt(0) == 'a') {
+            count = 1;
+        }
+        return count + counta(input.substring(1));
+    }
+
+    /**
+     * Method remove letter form input
+     *
+     * @param input  string
+     * @param letter which will be removed
+     * @return String
+     * <p>
+     * *@throws Exception Do not throw, just testing tags and javaDoc*
+     * @author Daniel
+     */
+    public static String removeLetters(String input, char letter) {
+        String result;
+        if (input.length() == 0) {
+            result = "";
+        } else {
+            char first = input.charAt(0);
+            String rest = input.substring(1); //        System.out.println(input + "|" + rest);
+            String recurse = removeLetters(rest, letter); //        System.out.println(recurse + "|" + rest);
+            if (first == letter) {
+                result = recurse;
+            } else {
+                result = first + recurse;
+            }
+        }
+        return result;
+    }
+
+    public static class zadanie8_1 {
         public static void main(String[] args) {
             printSong(99);
         }
@@ -548,16 +564,13 @@ public class Zadania {
 
         public static void verse(int beers) {
             System.out.println(beers + " butelek piwa na regale,");
-            System.out.println(beers + " butelek piwa,\n" +
-                    "weź jedną, podaj ją dalej,");
+            System.out.println(beers + " butelek piwa,\n" + "weź jedną, podaj ją dalej,");
             System.out.println(beers - 1 + " butelek piwa na regale.\n");
         }
 
         public static void lastVerse() {
             System.out.println("No more beers");
         }
-
-
     }
 
     public static int oddSum8_2(int n) {
@@ -578,7 +591,6 @@ public class Zadania {
     }
 
     public static class Exercise8_3 {
-
         public static void main(String[] args) {
             int result = prodShort(1, 8);
             System.out.printf("%,d", result);
@@ -639,7 +651,6 @@ public class Zadania {
     }
 
     public static class exercise8_7 {
-
         public static void main(String[] args) {
             printString("kakao");
             System.out.println("----");
@@ -651,28 +662,28 @@ public class Zadania {
         }
 
         /**
-         * Zwraca pierwszy znak podanego łańcucha znakowego.
+         * Return first char of given string
          */
         public static char first(String s) {
             return s.charAt(0);
         }
 
         /**
-         * Zwraca wszystkie znaki podanego łańcucha znakowego oprócz pierwszego.
+         * Return all chars of given string without first one
          */
         public static String rest(String s) {
             return s.substring(1);
         }
 
         /**
-         * Zwraca wszystkie znaki podanego łańcucha znakowego oprócz pierwszego i ostatniego.
+         * Return all chars given string without first and last char
          */
         public static String middle(String s) {
             return s.substring(1, s.length() - 1);
         }
 
         /**
-         * Zwraca długość podanego łańcucha znakowego.
+         * Return length of given string
          */
         public static int length(String s) {
             return s.length();
@@ -684,13 +695,11 @@ public class Zadania {
             } else {
                 System.out.println(first(s));
                 printString(rest(s));
-
             }
         }
 
         public static void printBackward(String s) {
-            if (length(s) == 0) {
-            } else {
+            if (length(s) != 0) {
                 printBackward(rest(s));
                 System.out.println(first(s));
             }
@@ -713,5 +722,7 @@ public class Zadania {
                 return false;
             }
         }
+
+
     }
 }

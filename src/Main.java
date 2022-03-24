@@ -1,10 +1,10 @@
-import zadania.Zadania;
+import zadania.Exercises;
 
 public class Main {
     public static void main(String[] args) {
         int[] a = {2, 7, 5};
 
-        Zadania.fibonacciDisplayAll(40);
+        Exercises.fibonacciDisplayAll(40);
 
 //        int[] histrogram = Zadania.zadanie7_7("baba poszła do komina");
 
