@@ -1,9 +1,15 @@
 package exercises;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * @author Daniel
+ * @version 1.1
+ *
+ */
 public class Exercises {
 
     public static void zadanie3_4() {
@@ -28,6 +34,11 @@ public class Exercises {
         }
     }
 
+    /**
+     * @hidden nothing
+     * @param in ok
+     * @return double
+     */
     public static double multAdd(double in) {
         return in * Math.exp(in * -1.0) + Math.sqrt(1 - Math.exp(in * -1.0));
     }
@@ -733,10 +744,12 @@ public class Exercises {
 
     public static class Chapter9 {
         public static void main(String[] args) {
-            Exercise9_1();
+            System.out.println(exercise9_6("(()()(()((('/.p]}a[s//]]\"", '{'));
+            char cha = '"';
+            System.out.println((int) cha);
         }
 
-        public static void Exercise9_1() {
+        public static void exercise9_1() {
             int num = 8;
             boolean bool = true;
             char chara = 'a';
@@ -755,7 +768,97 @@ public class Exercises {
             chara++;
             chara = (char) (chara + 1); // after adding one to char type it convert to int types, needed reversed projection
             System.out.println(chara);
+        }
 
+        public static void exercise9_2() {
+            printTableOfFactorials(30);
+        }
+
+        public static void printTableOfFactorials(int num) {
+            for (int i = 0; i <= num; i++) {
+                System.out.println(i + ": " + factorial(i));
+            }
+        }
+
+        public static BigInteger factorial(int n) {
+            if (n == 0) {
+                return BigInteger.valueOf(-1);
+            }
+
+            BigInteger result = BigInteger.valueOf(1);
+            for (int i = 1; i <= n; i++) {
+                result = result.multiply(BigInteger.valueOf(i));
+            }
+            return result;
+        }
+
+        public static BigInteger pow(int x, int n) {
+            if (n == 0) {
+                return BigInteger.valueOf(1);
+            }
+            BigInteger t = pow(x, n / 2);
+
+            if (n % 2 == 0) {
+                return (BigInteger.valueOf(x).multiply(BigInteger.valueOf(x)));
+            } else {
+                return t.multiply(BigInteger.valueOf(x).multiply(BigInteger.valueOf(x)));
+            }
+        }
+
+        //sth is wrong in this ex or i dont understand
+        public static double exercise9_4(int x, int n) {
+            if (n == 0) {
+                return 0;
+            }
+            if (n == 1 || x == 0) {
+                return 1;
+            }
+            if (n == 2) {
+                return 1 + x;
+            }
+            double sum = 1 + x;
+            double meter = x;
+            double denominator = 1;
+            for (int i = 2; i < n; i++) {
+                meter *= x;
+                denominator *= i;
+                sum += meter / denominator;
+                //sum += Math.pow(x, i) / (factorialDown(i));
+            }
+            return sum;
+        }
+
+        public static double myexp(int n) {
+            double sum = 0;
+            double x = Math.E;
+            for (int i = 0; i < n; i++) {
+                sum += Math.pow(x, i) / (factorialDown(i));
+            }
+            return sum;
+        }
+
+        public static void check(double x) {
+            System.out.println(Math.exp(x));
+        }
+
+        public static int exercise9_6(String s, char bracket) {
+            int count = 0;
+            int diff = 1;
+            if (bracket == '{' || bracket == '[') {
+                diff = 2;
+            }
+
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                if (c == bracket) {
+                    count++;
+                } else if (c == bracket + diff) {
+                    count--;
+                }
+            }
+            return count;
         }
     }
+
+
 }

@@ -101,5 +101,48 @@ class ExercisesTests {
                 () -> assertTrue(Exercises.exercise8_7.isPalindrome("kajak"))
         );
     }
+
+    /*@Test
+    void testExercise9_4() {
+        assertAll("All",
+        () -> assertEquals(0, Exercises.Chapter9.exercise9_4(0, 0)),
+        () -> assertEquals(1, Exercises.Chapter9.exercise9_4(0, 1)),
+        () -> assertEquals(1, Exercises.Chapter9.exercise9_4(0, 2)),
+        () -> assertEquals(1, Exercises.Chapter9.exercise9_4(0, 5)),
+        () -> assertEquals(0, Exercises.Chapter9.exercise9_4(1, 0)),
+        () -> assertEquals(1, Exercises.Chapter9.exercise9_4(1, 1)),
+        () -> assertEquals(2, Exercises.Chapter9.exercise9_4(1, 2)),
+        () -> assertEquals(2.5, Exercises.Chapter9.exercise9_4(1, 3)),
+        () -> assertEquals(2.66, Exercises.Chapter9.exercise9_4(1, 4), 0.01),
+        () -> assertEquals(0, Exercises.Chapter9.exercise9_4(2, 0) ),
+        () -> assertEquals(1, Exercises.Chapter9.exercise9_4(2, 1), 0.01),
+        () -> assertEquals(3, Exercises.Chapter9.exercise9_4(2, 2), 0.01),
+        () -> assertEquals(5, Exercises.Chapter9.exercise9_4(2, 3), 0.01),
+        () -> assertEquals(7, Exercises.Chapter9.exercise9_4(2, 5), 0.01),
+        () -> assertEquals(11, Exercises.Chapter9.exercise9_4(10, 2), 0.01),
+        () -> assertEquals(61, Exercises.Chapter9.exercise9_4(10, 3), 0.01)
+        );
+    }*/
+    @Test
+    void testExercise9_4() {
+        assertAll("All",
+                () -> assertEquals(0, Exercises.Chapter9.myexp(0)),
+                () -> assertEquals(1, Exercises.Chapter9.myexp(1)),
+                () -> assertEquals(1, Exercises.Chapter9.myexp(2)),
+                () -> assertEquals(1, Exercises.Chapter9.myexp(5)),
+                () -> assertEquals(0, Exercises.Chapter9.myexp(0)),
+                () -> assertEquals(1, Exercises.Chapter9.myexp(1)),
+                () -> assertEquals(2, Exercises.Chapter9.myexp(2)),
+                () -> assertEquals(2.5, Exercises.Chapter9.myexp(3)),
+                () -> assertEquals(2.66, Exercises.Chapter9.myexp(4), 0.01),
+                () -> assertEquals(0, Exercises.Chapter9.myexp(0)),
+                () -> assertEquals(1, Exercises.Chapter9.myexp(1), 0.01),
+                () -> assertEquals(3, Exercises.Chapter9.myexp(2), 0.01),
+                () -> assertEquals(5, Exercises.Chapter9.myexp(3), 0.01),
+                () -> assertEquals(7, Exercises.Chapter9.myexp(5), 0.01),
+                () -> assertEquals(11, Exercises.Chapter9.myexp(2), 0.01),
+                () -> assertEquals(61, Exercises.Chapter9.myexp(3), 0.01)
+        );
+    }
 }
 
