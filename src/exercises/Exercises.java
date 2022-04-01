@@ -414,6 +414,7 @@ public class Exercises {
 
     /**
      * return index of the biggest element in a list
+     *
      * @param inputArray array to seek
      * @return int
      */
@@ -920,5 +921,5 @@ public class Exercises {
         }
     }
 
-    
+
 }
