@@ -1,6 +1,7 @@
 package exercises.examples;
 
 public class Recursion {
+    int pprivate;
 
     public static void main(String[] args) {
         System.out.println("Metoda countdown");

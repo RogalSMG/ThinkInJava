@@ -103,7 +103,6 @@ public class Time {
      * Dodaje podaną liczbę sekund do obiektu this (modyfikator).
      */
     public void increment(double seconds) {
-
         this.second += seconds;
 
         if (this.second >= 60) {
@@ -112,6 +111,7 @@ public class Time {
             this.second = rest;
             this.minute += minutes;
         }
+
         if (this.minute >= 60) {
             int rest = this.minute % 60;
             int hours = this.minute / 60;
@@ -119,5 +119,4 @@ public class Time {
             this.hour += hours;
         }
     }
-
 }
