@@ -358,7 +358,7 @@ public class Exercises {
 
     }
 
-    public static void displayingLetterAndCount(int[] inputCounts) {
+    public static void displayHistogramInTable(int[] inputCounts) {
 
         for (int i = 0; i < 26; i++) {
             System.out.print((char) ('a' + i) + " ");
@@ -379,7 +379,7 @@ public class Exercises {
                 counts[ch - 'a']++;
             }
         }
-        displayingLetterAndCount(counts);
+        displayHistogramInTable(counts);
     }
 
     public static class zadanie7_2 {
@@ -921,5 +921,10 @@ public class Exercises {
         }
     }
 
-
+    public static int[] powArray(int[] arr, int x) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) Math.pow(arr[i], x);
+        }
+        return arr;
+    }
 }
