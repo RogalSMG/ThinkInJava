@@ -10,7 +10,7 @@ public class MoirPattern extends Canvas {
 
         Canvas canvas = new MoirPattern();
         canvas.setBackground(Color.lightGray);
-        canvas.setSize(1000, 1000);
+        canvas.setSize(1000,1000);
 
         frame.add(canvas);
         frame.pack();
