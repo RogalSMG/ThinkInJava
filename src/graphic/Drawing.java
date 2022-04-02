@@ -6,15 +6,14 @@ import java.awt.*;
 public class Drawing extends Canvas {
 
     public static void main(String[] args) {
-
         JFrame frame = new JFrame("For absent Grzechu: ");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        Canvas drawing = new Drawing();
-        drawing.setBackground(Color.GRAY);
-        drawing.setSize(1000, 1000);
+        Canvas canvas = new Drawing();
+        canvas.setBackground(Color.GRAY);
+        canvas.setSize(1000, 1000);
 
-        frame.add(drawing);
+        frame.add(canvas);
         frame.pack();
         frame.setVisible(true);
     }
@@ -40,16 +39,20 @@ public class Drawing extends Canvas {
         boxOval(g, rec);
         int hw = rec.width / 2;
         int hh = rec.height / 2;
-        Rectangle half = new Rectangle(rec.x, rec.y, hw, hh);
 
-        half.translate(-hw / 2, -hh / 2);
-        boxOval(g, half);
 
-        half.translate(hw*2,0);
-        boxOval(g, half);
-    }
+        while (rec.width >= 3) {
 
-    public void japanFlag(Graphics g) {
+            Rectangle half = new Rectangle(rec.x, rec.y, hw, hh);
+
+            half.translate(-hw / 2, -hh / 2);
+            boxOval(g, half);
+
+            half.translate(hw * 2, 0);
+            boxOval(g, half);
+
+            mickey(g, half);
+        }
 
     }
 }
