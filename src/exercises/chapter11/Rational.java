@@ -1,5 +1,8 @@
 package exercises.chapter11;
 
+/**
+ * @author Daniel
+ */
 public class Rational {
     private int meter;
     private int denominator;
@@ -18,10 +21,17 @@ public class Rational {
         System.out.println(meter + "/" + denominator);
     }
 
+    /**
+     * Negating rational number
+     */
     public void negate() {
         meter = meter - meter * 2;
     }
 
+    /**
+     * Modifying method.
+     * Swap meter and denominator.
+     */
     public void invert() {
         int temp = meter;
         meter = denominator;
@@ -32,12 +42,22 @@ public class Rational {
         return (double) meter / denominator;
     }
 
+    /**
+     * Modifying method.
+     * Is shortening a fraction.
+     */
     public void reduce() {
         int reducer = euklidesGCD(meter, denominator);
         meter /= reducer;
         denominator /= reducer;
     }
 
+    /**
+     * Instance method. - Method can be called only by object of Rational class. Non modifying method. <p>
+     * Adding rational number to current rational.
+     * @param that second rational obj
+     * @return Rational
+     */
     public Rational add(Rational that) {
         Rational sum = new Rational();
         if (this.denominator == that.denominator) {

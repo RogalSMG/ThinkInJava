@@ -9,7 +9,6 @@ import java.util.Scanner;
 /**
  * @author Daniel
  * @version 1.1
- *
  */
 public class Exercises {
 
@@ -36,9 +35,9 @@ public class Exercises {
     }
 
     /**
-     * @hidden nothing
      * @param in ok
      * @return double
+     * @hidden nothing
      */
     public static double multAdd(double in) {
         return in * Math.exp(in * -1.0) + Math.sqrt(1 - Math.exp(in * -1.0));
@@ -316,7 +315,7 @@ public class Exercises {
             }
         }
         return isDoubloon;
-        // TODO: 14/03/2022 mogłbys zrobic złozoność 0 ale nie wiem czy sie da
+        // TODO: 14/03/2022 mogłbys zrobic złozoność O(n) ale nie wiem czy sie da
     }
 
     public static boolean zadanie6_6(String titles, String word) {
@@ -842,18 +841,27 @@ public class Exercises {
             System.out.println(Math.exp(x));
         }
 
-        public static int exercise9_6(String s, char bracket) {
+        /**
+         * Counting number of 'br' type bracket in given string. <p>
+         * Return 0 if amount of opposite brackets is equal.
+         * Positive int if there are more opening brackets, if less - negative.
+         *
+         * @param s  given String
+         * @param br type of bracket in opening form
+         * @return int
+         */
+        public static int exercise9_6(String s, char br) {
             int count = 0;
             int diff = 1;
-            if (bracket == '{' || bracket == '[') {
+            if (br == '{' || br == '[') {
                 diff = 2;
             }
 
             for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
-                if (c == bracket) {
+                if (c == br) {
                     count++;
-                } else if (c == bracket + diff) {
+                } else if (c == br + diff) {
                     count--;
                 }
             }
@@ -881,7 +889,7 @@ public class Exercises {
     }
 
     public static class Exercise10_2 {
-        public static void main(String[] args){
+        public static void main(String[] args) {
             Point blank = new Point(5, 8);
 
             Rectangle rect = new Rectangle(0, 2, 4, 4);
@@ -917,7 +925,7 @@ public class Exercises {
             box1.grow(1, 1);
             Point p2 = findCenter(box1);
             printPoint(p2);
-            System.out.println(p1==p2);
+            System.out.println(p1 == p2);
         }
     }
 

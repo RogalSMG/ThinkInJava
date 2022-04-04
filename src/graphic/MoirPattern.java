@@ -30,13 +30,14 @@ public class MoirPattern extends Canvas {
 
 
     /**
-     * This method is drawing concentric circles, is limited by resolution of window.
+     * This method is drawing concentric circles, is limited by param size.
      * <p>
      * Distance between circles is determined by param gap.
      *
      * @param g graphic obj
      * @param rec rectangle obj
      * @param gap size between each circle
+     * @param size maximum possible size of last circle
      */
     public void concentricCircles(Graphics g, Rectangle rec, int gap, int size) {
         int i = gap;
@@ -61,6 +62,7 @@ public class MoirPattern extends Canvas {
     }
 
     /**
+     * Finding higher dimension of current canvas.
      *
      * @return int
      */

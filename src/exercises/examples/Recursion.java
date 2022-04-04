@@ -11,7 +11,7 @@ public class Recursion {
         nLines(3);
 
         System.out.println("Metoda countup");
-        countup(3);
+        countUp(3);
 
         System.out.println("Metoda displayBinary");
         displayBinary(23);
@@ -38,16 +38,16 @@ public class Recursion {
         }
     }
 
-    /*public static void forever(String s) {
+    public static void forever(String s) {
         System.out.println(s);
         forever(s);
-    }*/
+    }
 
-    public static void countup(int n) {
+    public static void countUp(int n) {
         if (n == 0) {
             System.out.println("Odpalamy!");
         } else {
-            countup(n - 1);
+            countUp(n - 1);
             System.out.println(n);
         }
     }

@@ -36,7 +36,7 @@ class ExercisesTests {
     }
 
     @Test
-    void counta() {
+    void testCounta() {
         assertAll("Checking plenty words",
                 () -> assertEquals(3, Exercises.counta("ssaaa")),
                 () -> assertEquals(1, Exercises.counta("Danielos")),
@@ -102,7 +102,7 @@ class ExercisesTests {
         );
     }
 
-    /*@Test
+    @Test
     void testExercise9_4() {
         assertAll("All",
         () -> assertEquals(0, Exercises.Chapter9.exercise9_4(0, 0)),
@@ -122,9 +122,9 @@ class ExercisesTests {
         () -> assertEquals(11, Exercises.Chapter9.exercise9_4(10, 2), 0.01),
         () -> assertEquals(61, Exercises.Chapter9.exercise9_4(10, 3), 0.01)
         );
-    }*/
+    }
     @Test
-    void testExercise9_4() {
+    void testExercise9_4ImplementedMyExp() {
         assertAll("All",
                 () -> assertEquals(0, Exercises.Chapter9.myexp(0)),
                 () -> assertEquals(1, Exercises.Chapter9.myexp(1)),
