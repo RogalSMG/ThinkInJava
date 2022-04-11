@@ -19,8 +19,8 @@ public class Drawing extends Canvas {
     }
 
     public void paint(Graphics g) {
-        Rectangle rec = new Rectangle(400, 400, 200, 200);
-        mickey(g, rec);
+        Rectangle rec = new Rectangle(400, 600, 200, 200);
+        mickeyRec(g, rec);
     }
 
     public void paintPipe(Graphics g) {
@@ -40,19 +40,33 @@ public class Drawing extends Canvas {
         int hw = rec.width / 2;
         int hh = rec.height / 2;
 
+        Rectangle half = new Rectangle(rec.x, rec.y, hw, hh);
 
-        while (rec.width >= 3) {
+        half.translate(-hw / 2, -hh / 2);
+        boxOval(g, half);
 
-            Rectangle half = new Rectangle(rec.x, rec.y, hw, hh);
+        half.translate(hw * 2, 0);
+        boxOval(g, half);
+    }
 
-            half.translate(-hw / 2, -hh / 2);
-            boxOval(g, half);
-
-            half.translate(hw * 2, 0);
-            boxOval(g, half);
-
-            mickey(g, half);
+    public void mickeyRec(Graphics g, Rectangle rec) {
+        if (rec.width <= 3) {
+            return;
         }
+
+        boxOval(g, rec);
+        int hw = rec.width / 2;
+        int hh = rec.height / 2;
+
+        Rectangle half = new Rectangle(rec.x, rec.y, hw, hh);
+
+        half.translate(-hw / 2, -hh / 2);
+        boxOval(g, half);
+        mickey(g, half);
+
+        half.translate(hw * 2, 0);
+        boxOval(g, half);
+        mickey(g, half);
 
     }
 }
