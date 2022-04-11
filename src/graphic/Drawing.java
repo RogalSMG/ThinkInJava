@@ -19,7 +19,7 @@ public class Drawing extends Canvas {
     }
 
     public void paint(Graphics g) {
-        Rectangle rec = new Rectangle(400, 600, 200, 200);
+        Rectangle rec = new Rectangle(350, 600, 300, 300);
         mickeyRec(g, rec);
     }
 
@@ -50,7 +50,7 @@ public class Drawing extends Canvas {
     }
 
     public void mickeyRec(Graphics g, Rectangle rec) {
-        if (rec.width <= 3) {
+        if (rec.width <= 8) {
             return;
         }
 
@@ -62,11 +62,11 @@ public class Drawing extends Canvas {
 
         half.translate(-hw / 2, -hh / 2);
         boxOval(g, half);
-        mickey(g, half);
+        mickeyRec(g, half);
 
         half.translate(hw * 2, 0);
         boxOval(g, half);
-        mickey(g, half);
+        mickeyRec(g, half);
 
     }
 }

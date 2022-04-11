@@ -47,7 +47,7 @@ public class Rational {
      * Is shortening a fraction.
      */
     public void reduce() {
-        int reducer = euklidesGCD(meter, denominator);
+        int reducer = euclidesGCD(meter, denominator);
         meter /= reducer;
         denominator /= reducer;
     }
@@ -64,7 +64,7 @@ public class Rational {
             sum.denominator = this.denominator;
             sum.meter = this.meter + that.meter;
         } else {
-            int gcd = euklidesGCD(this.denominator, that.denominator);
+            int gcd = euclidesGCD(this.denominator, that.denominator);
             sum.denominator = lcm(this.denominator, that.denominator);
             sum.meter = (this.meter * that.denominator / gcd )+ (that.meter * this.denominator / gcd);
         }
@@ -84,7 +84,7 @@ public class Rational {
      * @param b second number
      * @return int
      */
-    public int euklidesGCD(int a, int b) {
+    public int euclidesGCD(int a, int b) {
         while (a != b) {
             if (a > b) {
                 a = a - b;
@@ -103,7 +103,7 @@ public class Rational {
      * @return int
      */
     public int lcm(int a, int b) {
-        return a * b / euklidesGCD(a, b);
+        return a * b / euclidesGCD(a, b);
     }
 
     public int getMeter() {
